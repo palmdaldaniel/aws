@@ -31,4 +31,4 @@ jobs:
 
       - name: Upload File to S3 Bucket
         run: |
-          aws s3 cp path/to/your/file.txt s3://${{ steps.branch.outputs.name }}/path/in/s3/file.txt
+          aws s3 sync . s3://${{ steps.branch.outputs.name }}
