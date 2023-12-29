@@ -41,16 +41,16 @@ jobs:
       - name: Make S3 Bucket and Contents Public
         run: |
           aws s3api put-bucket-policy \
-          --bucket ${{ steps.branch.outputs.name }} \
-          --policy '{
-            "Version": "2012-10-17",
-            "Statement": [
-              {
-                "Sid": "PublicReadGetObject",
-                "Effect": "Allow",
-                "Principal": "*",
-                "Action": "s3:GetObject",
-                "Resource": "arn:aws:s3:::${{ steps.branch.outputs.name }}/*"
-              },
-            ]
-          }'
+            --bucket ${{ steps.branch.outputs.name }} \
+            --policy '{
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Sid": "PublicReadGetObject",
+                  "Effect": "Allow",
+                  "Principal": "*",
+                  "Action": "s3:GetObject",
+                  "Resource": "arn:aws:s3:::${{ steps.branch.outputs.name }}/*"
+                }
+              ]
+            }'
