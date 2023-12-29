@@ -32,3 +32,8 @@ jobs:
       - name: Upload File to S3 Bucket
         run: |
           aws s3 sync . s3://${{ steps.branch.outputs.name }}
+
+      - name: Enable Static Website Hosting
+        run: |
+          aws s3 website s3://${{ steps.branch.outputs.name }} \
+            --index-document index.html
